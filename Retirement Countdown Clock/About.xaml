@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="Retirement_Countdown_Clock.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Retirement_Countdown_Clock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel x:Name="Container" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="Purple" x:Name="MobileTitle">
+            <TextBlock Width="auto" HorizontalAlignment="Stretch" Text="Retirement Countdown Clock" Foreground="White" Margin="5,10" />
+        </Grid>
+        <AppBarButton x:Name="appBarButton" Icon="Back" Label="Back" Margin="0,-4,0,0" d:LayoutOverrides="Width" Click="BackButton_Click"/>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,10,0" MaxWidth="600">
+            <TextBlock Text="About" Margin="0,5" FontSize="18.667" />
+                <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
+        	    <Run Text="Inspired by those around me who are a lot closer to retirement and my aspiration of retiring at 50."/>
+            </TextBlock>
+            <TextBlock Text="Versions" Margin="0,15,0,5" FontSize="18.667" />
+            <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+            <TextBlock Margin="0,5" TextWrapping="Wrap">
+        	    <Run FontWeight="Bold" Text="1.1.0.0"/>
+        	    <LineBreak/>
+        	    <Run Text="    *  Ability to set one retirement date and see how many working and calendar days until retirement"/>
+            </TextBlock>
+            <TextBlock Text="Support" Margin="0,15,0,5" FontSize="18.667" />
+            <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+            <TextBlock Margin="0,5" Text="This app is hopefully as simple as it gets! But if you have any questions, please post a comment on my website." TextWrapping="Wrap"/>
+            <HyperlinkButton Content="Victoria's Blog" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" NavigateUri="http://blog.v-s-f.co.uk/retirement-countdown-clock/"/>
+        </StackPanel>
+    </StackPanel>
+</Page>

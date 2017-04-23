@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="Retirement_Countdown_Clock.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Retirement_Countdown_Clock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton Label="Information" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" Click="GoToAbout">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="Assets/info.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Icon="Setting" Label="Settings" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" Click="GoToSettings"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <StackPanel x:Name="Container" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="Purple" x:Name="MobileTitle">
+            <TextBlock Width="auto" HorizontalAlignment="Stretch" Text="Retirement Countdown Clock" Foreground="White" Margin="5,10" />
+        </Grid>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10">
+            <TextBlock Margin="0,5" TextWrapping="Wrap" Text="Calendar days" FontSize="18.667"/>
+            <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5"/>
+            <Grid Width="336" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="cd1" Grid.Column="0" Stretch="Fill"/>
+                <Image x:Name="cd2" Grid.Column="1" Stretch="Fill"/>
+                <Image x:Name="cd3" Grid.Column="2" Stretch="Fill"/>
+                <Image x:Name="cd4" Grid.Column="3" Stretch="Fill"/>
+                <Image x:Name="cd5" Grid.Column="4" Stretch="Fill"/>
+            </Grid>
+            <TextBlock x:Name="information" Margin="0,5" TextWrapping="Wrap" />
+            <TextBlock TextWrapping="Wrap" Text="Working days" Margin="0,15,0,5" FontSize="18.667"/>
+            <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+            <Grid Width="336" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="40" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="wd1" Grid.Column="0" Stretch="Fill"/>
+                <Image x:Name="wd2" Grid.Column="1" Stretch="Fill"/>
+                <Image x:Name="wd3" Grid.Column="2" Stretch="Fill"/>
+                <Image x:Name="wd4" Grid.Column="3" Stretch="Fill"/>
+                <Image x:Name="wd5" Grid.Column="4" Stretch="Fill"/>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Page>

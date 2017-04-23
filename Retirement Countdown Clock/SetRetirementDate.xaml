@@ -1,0 +1,140 @@
+﻿<Page
+    x:Class="Retirement_Countdown_Clock.SetRetirementDate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Retirement_Countdown_Clock"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" CanDrag="True" VerticalScrollMode="Auto" Height="Auto" IsHoldingEnabled="True">
+        <StackPanel x:Name="Container" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="Purple" x:Name="MobileTitle">
+            <TextBlock Width="auto" HorizontalAlignment="Stretch" Text="Retirement Countdown Clock" Foreground="White" Margin="5,10" />
+        </Grid>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,10,0" MaxWidth="600">
+                    <TextBlock Text="Application Settings" Margin="0,5" FontSize="18.667" />
+                    <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+                    <TextBlock TextWrapping="Wrap" Margin="0,5">
+            	    <Run Text="Enter your retirement date below."/>
+            	    <LineBreak/>
+            	    <Run FontSize="6" Text=" "/>
+            	    <LineBreak/>
+            	    <Run Text="This will be used to calculate the amount of time remaining before you are due to retire."/>
+            	    <LineBreak/>
+            	    <Run FontSize="6" Text=" "/>
+            	    <LineBreak/>
+            	    <Run Text="If you do not know exactly when you will retire, enter an approximate date."/>
+                    </TextBlock>
+                    <DatePicker x:Name="datePicker" HorizontalAlignment="Stretch" />
+                    <TextBlock TextWrapping="Wrap" Margin="0,5">
+                    <Run FontSize="6" Text=" " />
+            	    <LineBreak/>
+                    <Run Text="The number of working days is calculated using the following." />
+            	    <LineBreak/>
+            	    <Run FontSize="6" Text=" "/>
+            	    <LineBreak/>
+                    <Run Text="The number of working days, minus the number of days holiday and minus the number of bank holidays multiplied by the number of years.  It's not completely accurate but will give a very good idea of how many working days until your retirement."/>
+                    </TextBlock>
+                    <Grid Width="336" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Working days per week " Grid.Row="0" Grid.Column="0" Margin="0,5" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="wdwd" Grid.Row="0" Grid.Column="1" Margin="0,5">
+                            <ComboBoxItem Name="wdwd1">1</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd2">2</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd3">3</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd4">4</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd5">5</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd6">6</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd7">7</ComboBoxItem>
+                        </ComboBox>
+                        <TextBlock Text="Bank holidays per year " Grid.Row="1" Grid.Column="0" Margin="0,5" VerticalAlignment="Center" />
+                        <ComboBox x:Name="wdbh" Grid.Row="1" Grid.Column="1" Margin="0,5">
+                            <ComboBoxItem Name="wdbh0">0</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh1">1</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh2">2</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh3">3</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh4">4</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh5">5</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh6">6</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh7">7</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh8">8</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh9">9</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh10">10</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh11">11</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh12">12</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh13">13</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh14">14</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh15">15</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh16">16</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh17">17</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh18">18</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh19">19</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh20">20</ComboBoxItem>
+                            <ComboBoxItem Name="wdbh21">21</ComboBoxItem>
+                        </ComboBox>
+                        <TextBlock Text="Days holiday per year " Grid.Row="2" Grid.Column="0" Margin="0,5" VerticalAlignment="Center" />
+                        <ComboBox x:Name="wddh" Grid.Row="2" Grid.Column="1" Margin="0,5">
+                            <ComboBoxItem Name="wddh0">0</ComboBoxItem>
+                            <ComboBoxItem Name="wddh1">1</ComboBoxItem>
+                            <ComboBoxItem Name="wddh2">2</ComboBoxItem>
+                            <ComboBoxItem Name="wddh3">3</ComboBoxItem>
+                            <ComboBoxItem Name="wddh4">4</ComboBoxItem>
+                            <ComboBoxItem Name="wddh5">5</ComboBoxItem>
+                            <ComboBoxItem Name="wddh6">6</ComboBoxItem>
+                            <ComboBoxItem Name="wddh7">7</ComboBoxItem>
+                            <ComboBoxItem Name="wddh8">8</ComboBoxItem>
+                            <ComboBoxItem Name="wddh9">9</ComboBoxItem>
+                            <ComboBoxItem Name="wddh10">10</ComboBoxItem>
+                            <ComboBoxItem Name="wddh11">11</ComboBoxItem>
+                            <ComboBoxItem Name="wddh12">12</ComboBoxItem>
+                            <ComboBoxItem Name="wddh13">13</ComboBoxItem>
+                            <ComboBoxItem Name="wddh14">14</ComboBoxItem>
+                            <ComboBoxItem Name="wddh15">15</ComboBoxItem>
+                            <ComboBoxItem Name="wddh16">16</ComboBoxItem>
+                            <ComboBoxItem Name="wddh17">17</ComboBoxItem>
+                            <ComboBoxItem Name="wddh18">18</ComboBoxItem>
+                            <ComboBoxItem Name="wddh19">19</ComboBoxItem>
+                            <ComboBoxItem Name="wddh20">20</ComboBoxItem>
+                            <ComboBoxItem Name="wddh21">21</ComboBoxItem>
+                            <ComboBoxItem Name="wddh22">22</ComboBoxItem>
+                            <ComboBoxItem Name="wddh23">23</ComboBoxItem>
+                            <ComboBoxItem Name="wddh24">24</ComboBoxItem>
+                            <ComboBoxItem Name="wddh25">25</ComboBoxItem>
+                            <ComboBoxItem Name="wddh26">26</ComboBoxItem>
+                            <ComboBoxItem Name="wddh27">27</ComboBoxItem>
+                            <ComboBoxItem Name="wddh28">28</ComboBoxItem>
+                            <ComboBoxItem Name="wddh29">29</ComboBoxItem>
+                            <ComboBoxItem Name="wddh30">30</ComboBoxItem>
+                            <ComboBoxItem Name="wddh31">31</ComboBoxItem>
+                            <ComboBoxItem Name="wddh32">32</ComboBoxItem>
+                            <ComboBoxItem Name="wddh33">33</ComboBoxItem>
+                            <ComboBoxItem Name="wddh34">34</ComboBoxItem>
+                            <ComboBoxItem Name="wddh35">35</ComboBoxItem>
+                            <ComboBoxItem Name="wddh36">36</ComboBoxItem>
+                            <ComboBoxItem Name="wddh37">37</ComboBoxItem>
+                            <ComboBoxItem Name="wddh38">38</ComboBoxItem>
+                            <ComboBoxItem Name="wddh39">39</ComboBoxItem>
+                            <ComboBoxItem Name="wddh40">40</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <TextBlock Text="Clear Data" Margin="0,15,0,5" FontSize="18.667" />
+                    <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+                    <TextBlock Text="This application stores 4 pieces of data (see application settings above) in the devices local settings.  If you would like to clear the data, click the button below." Margin="0,5" TextWrapping="Wrap"/>
+                    <Button VerticalAlignment="Center" Content="Clear Data" Click="ClearData_Click" Margin="0,5,0,15" HorizontalAlignment="Center" />
+                </StackPanel>
+            <AppBarButton x:Name="appBarButton" Icon="Back" Label="Back" Margin="0,-4,0,0" d:LayoutOverrides="Width" Click="BackButton_Click"/>
+
+        </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
