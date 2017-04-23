@@ -8,17 +8,17 @@ namespace Retirement_Countdown_Clock
 {
     class RetirementDateRepositoryImpl : RetirementDateRepository
     {
-        private static RetirementDateRepository repositoryInstance;
+        private static RetirementDateRepository _repositoryInstance;
         private static String TICKS = "TICKS";
 
-        public static RetirementDateRepository instance()
+        public static RetirementDateRepository Instance()
         {
-            if (repositoryInstance == null)
+            if (_repositoryInstance == null)
             {
-                repositoryInstance = new RetirementDateRepositoryImpl();
+                _repositoryInstance = new RetirementDateRepositoryImpl();
             }
 
-            return repositoryInstance;
+            return _repositoryInstance;
         }
 
         private RetirementDateRepositoryImpl()
@@ -26,29 +26,29 @@ namespace Retirement_Countdown_Clock
 
         }
 
-        public RetirementDate retrieveRetirementDate()
+        public RetirementDate RetrieveRetirementDate()
         {
-            Windows.Storage.ApplicationDataContainer localSettings = getLocalSettings();
+            Windows.Storage.ApplicationDataContainer localSettings = GetLocalSettings();
             long? ticks = (long?)localSettings.Values[TICKS];
 
             RetirementDate retirementDate = new RetirementDate(ticks);
             return retirementDate;
         }
 
-        public void saveRetirementDate(RetirementDate toSave)
+        public void SaveRetirementDate(RetirementDate toSave)
         {
-            Windows.Storage.ApplicationDataContainer localSettings = getLocalSettings();
-            localSettings.Values[TICKS] = toSave.getTicks();
+            Windows.Storage.ApplicationDataContainer localSettings = GetLocalSettings();
+            localSettings.Values[TICKS] = toSave.GetTicks();
         }
 
-        private Windows.Storage.ApplicationDataContainer getLocalSettings()
+        private Windows.Storage.ApplicationDataContainer GetLocalSettings()
         {
             return Windows.Storage.ApplicationData.Current.LocalSettings;
         }
 
-        public void clearData()
+        public void ClearData()
         {
-            Windows.Storage.ApplicationDataContainer localSettings = getLocalSettings();
+            Windows.Storage.ApplicationDataContainer localSettings = GetLocalSettings();
             localSettings.Values[TICKS] = null;
         }
     }

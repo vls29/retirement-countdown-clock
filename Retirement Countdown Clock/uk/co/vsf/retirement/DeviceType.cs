@@ -9,7 +9,7 @@ namespace Retirement_Countdown_Clock.uk.co.vsf.retirement
 {
     class DeviceType
     {
-        public static bool isMobile()
+        public static bool IsMobile()
         {
             return ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar");
         }

@@ -27,11 +27,11 @@ namespace Retirement_Countdown_Clock
         public About()
         {
             this.InitializeComponent();
-            CustomTitleBar.customiseStatusBar();
+            CustomTitleBar.CustomiseStatusBar();
 
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
 
-            if (!DeviceType.isMobile())
+            if (!DeviceType.IsMobile())
             {
                 this.Container.Children.Remove(this.MobileTitle);
             }

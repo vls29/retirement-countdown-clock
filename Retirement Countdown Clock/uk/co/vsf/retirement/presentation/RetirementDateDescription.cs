@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace Retirement_Countdown_Clock
 {
-    abstract class RetirementDateDescription
+    internal abstract class RetirementDateDescription
     {
-        protected RetirementDateDescription retirementDateDescription;
+        public RetirementDateDescription Description { set; get; }
 
-        public void setRetirementDateDescription(RetirementDateDescription retirementDateDescription)
-        {
-            this.retirementDateDescription = retirementDateDescription;
-        }
-
-        public abstract String getText(RetirementDate retirementDate);
+        public abstract String GetText(RetirementDate retirementDate);
     }
 }

@@ -8,18 +8,18 @@ namespace Retirement_Countdown_Clock.uk.co.vsf.retirement.domain
 {
     class WorkingDaysParameters
     {
-        private int bankHolidays = 0;
-        private int holidays = 0;
-        private int workingDays = 1;
+        public int BankHolidays { get; private set; } = 0;
+        public int Holidays { get; private set; } = 0;
+        public int WorkingDays { get; private set; } = 1;
 
         public WorkingDaysParameters(int? workingDays, int? holidays, int? bankHolidays)
         {
-            this.workingDays = fieldValue(this.workingDays, workingDays);
-            this.bankHolidays = fieldValue(this.bankHolidays, bankHolidays);
-            this.holidays = fieldValue(this.holidays, holidays);
+            this.WorkingDays = FieldValue(this.WorkingDays, workingDays);
+            this.BankHolidays = FieldValue(this.BankHolidays, bankHolidays);
+            this.Holidays = FieldValue(this.Holidays, holidays);
         }
 
-        private int fieldValue(int field, int? inputValue)
+        private int FieldValue(int field, int? inputValue)
         {
             if (inputValue.HasValue && inputValue.Value > 0)
             {
@@ -27,21 +27,6 @@ namespace Retirement_Countdown_Clock.uk.co.vsf.retirement.domain
             }
 
             return field;
-        }
-
-        internal int getHolidays()
-        {
-            return holidays;
-        }
-
-        internal int getBankHolidays()
-        {
-            return bankHolidays;
-        }
-
-        internal int getWorkingDays()
-        {
-            return workingDays;
         }
     }
 }

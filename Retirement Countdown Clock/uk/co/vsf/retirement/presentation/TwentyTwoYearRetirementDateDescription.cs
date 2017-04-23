@@ -8,14 +8,14 @@ namespace Retirement_Countdown_Clock
 {
     class TwentyTwoYearRetirementDateDescription : RetirementDateDescription
     {
-        public override String getText(RetirementDate retirementDate)
+        public override String GetText(RetirementDate retirementDate)
         {
-            if (retirementDate.getDaysToRetirement() > 8030)
+            if (retirementDate.GetDaysToRetirement() > 8030)
             {
                 return "Unfortunately retirement is so far away, you ought to stop wishing your life away!";
             }
 
-            else { return retirementDateDescription.getText(retirementDate); }
+            else { return Description.GetText(retirementDate); }
         }
     }
 }

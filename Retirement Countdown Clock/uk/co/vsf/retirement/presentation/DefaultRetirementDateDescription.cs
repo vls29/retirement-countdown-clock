@@ -8,7 +8,7 @@ namespace Retirement_Countdown_Clock
 {
     class DefaultRetirementDateDescription : RetirementDateDescription
     {
-        public override String getText(RetirementDate retirementDate)
+        public override String GetText(RetirementDate retirementDate)
         {
             return "";
         }

@@ -28,40 +28,40 @@ namespace Retirement_Countdown_Clock
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private RetirementDateRepository retirementDateRepository = RetirementDateRepositoryImpl.instance();
-        private WorkingDaysParametersRepository workingDaysParametersRepository = WorkingDaysParametersRepositoryImpl.instance();
+        private RetirementDateRepository _retirementDateRepository = RetirementDateRepositoryImpl.Instance();
+        private WorkingDaysParametersRepository _workingDaysParametersRepository = WorkingDaysParametersRepositoryImpl.Instance();
 
-        private RetirementDateDescription description;
+        private RetirementDateDescription _description;
 
         public MainPage()
         {
             this.InitializeComponent();
-            CustomTitleBar.customiseStatusBar();
+            CustomTitleBar.CustomiseStatusBar();
 
-            Window.Current.CoreWindow.VisibilityChanged += coreWindowVisibilityChanged;
+            Window.Current.CoreWindow.VisibilityChanged += CoreWindowVisibilityChanged;
 
-            setCalendarDaysToRetirement();
-            setWorkingDaysToRetirement();
+            SetCalendarDaysToRetirement();
+            SetWorkingDaysToRetirement();
 
-            if (!DeviceType.isMobile())
+            if (!DeviceType.IsMobile())
             {
                 this.Container.Children.Remove(this.MobileTitle);
             }
         }
 
-        private void coreWindowVisibilityChanged(CoreWindow sender, VisibilityChangedEventArgs args)
+        private void CoreWindowVisibilityChanged(CoreWindow sender, VisibilityChangedEventArgs args)
         {
             if (args.Visible)
             {
-                setCalendarDaysToRetirement();
-                setWorkingDaysToRetirement();
+                SetCalendarDaysToRetirement();
+                SetWorkingDaysToRetirement();
             }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            setCalendarDaysToRetirement();
-            setWorkingDaysToRetirement();
+            SetCalendarDaysToRetirement();
+            SetWorkingDaysToRetirement();
         }
 
         private void GoToSettings(object sender, RoutedEventArgs e)
@@ -74,22 +74,22 @@ namespace Retirement_Countdown_Clock
             Frame.Navigate(typeof(About));
         }
 
-        private void setWorkingDaysToRetirement()
+        private void SetWorkingDaysToRetirement()
         {
-            WorkingDaysParameters workingDaysParameters = workingDaysParametersRepository.retrieveWorkingDaysParameters();
-            RetirementDate retirementDate = retirementDateRepository.retrieveRetirementDate();
-            int workingDays = retirementDate.getWorkingDaysToRetirement(workingDaysParameters);
-            displayDays(workingDays, this.wd1, this.wd2, this.wd3, this.wd4, this.wd5);
+            WorkingDaysParameters workingDaysParameters = _workingDaysParametersRepository.RetrieveWorkingDaysParameters();
+            RetirementDate retirementDate = _retirementDateRepository.RetrieveRetirementDate();
+            int workingDays = retirementDate.GetWorkingDaysToRetirement(workingDaysParameters);
+            DisplayDays(workingDays, this.wd1, this.wd2, this.wd3, this.wd4, this.wd5);
         }
 
-        private void setCalendarDaysToRetirement()
+        private void SetCalendarDaysToRetirement()
         {
-            RetirementDate retirementDate = retirementDateRepository.retrieveRetirementDate();
-            displayDays(retirementDate.getDaysToRetirement(), this.cd1, this.cd2, this.cd3, this.cd4, this.cd5);
-            this.information.Text = getRetirementDateDescription().getText(retirementDate);
+            RetirementDate retirementDate = _retirementDateRepository.RetrieveRetirementDate();
+            DisplayDays(retirementDate.GetDaysToRetirement(), this.cd1, this.cd2, this.cd3, this.cd4, this.cd5);
+            this.information.Text = GetRetirementDateDescription().GetText(retirementDate);
         }
 
-        private void displayDays(int retirementDays, Image i1, Image i2, Image i3, Image i4, Image i5)
+        private void DisplayDays(int retirementDays, Image i1, Image i2, Image i3, Image i4, Image i5)
         {
             String days = retirementDays.ToString();
             days = days.PadLeft(5, ' ');
@@ -98,28 +98,28 @@ namespace Retirement_Countdown_Clock
                 String imageNumber = days[i].ToString();
                 if (i == 0)
                 {
-                    i1.Source = createImageSource(imageNumber);
+                    i1.Source = CreateImageSource(imageNumber);
                 }
                 else if (i == 1)
                 {
-                    i2.Source = createImageSource(imageNumber);
+                    i2.Source = CreateImageSource(imageNumber);
                 }
                 else if (i == 2)
                 {
-                    i3.Source = createImageSource(imageNumber);
+                    i3.Source = CreateImageSource(imageNumber);
                 }
                 else if (i == 3)
                 {
-                    i4.Source = createImageSource(imageNumber);
+                    i4.Source = CreateImageSource(imageNumber);
                 }
                 else if (i == 4)
                 {
-                    i5.Source = createImageSource(imageNumber);
+                    i5.Source = CreateImageSource(imageNumber);
                 }
             }
         }
 
-        private ImageSource createImageSource(string imageNumber)
+        private ImageSource CreateImageSource(string imageNumber)
         {
             if (" ".Equals(imageNumber, StringComparison.CurrentCultureIgnoreCase))
             {
@@ -131,25 +131,25 @@ namespace Retirement_Countdown_Clock
             return bitmapImage;
         }
 
-        private RetirementDateDescription getRetirementDateDescription()
+        private RetirementDateDescription GetRetirementDateDescription()
         {
-            if (description == null)
+            if (_description == null)
             {
-                description = new RetiredRetirementDateDescription();
+                _description = new RetiredRetirementDateDescription();
                 TwoMonthRetirementDateDescription twoMonth = new TwoMonthRetirementDateDescription();
                 OneYearRetirementDateDescription oneYear = new OneYearRetirementDateDescription();
                 TwoYearRetirementDateDescription twoYear = new TwoYearRetirementDateDescription();
                 TwentyTwoYearRetirementDateDescription twentyTwoYear = new TwentyTwoYearRetirementDateDescription();
                 DefaultRetirementDateDescription defaultDescription = new DefaultRetirementDateDescription();
 
-                description.setRetirementDateDescription(twoMonth);
-                twoMonth.setRetirementDateDescription(oneYear);
-                oneYear.setRetirementDateDescription(twoYear);
-                twoYear.setRetirementDateDescription(twentyTwoYear);
-                twentyTwoYear.setRetirementDateDescription(defaultDescription);
+                _description.Description = twoMonth;
+                twoMonth.Description = oneYear;
+                oneYear.Description = twoYear;
+                twoYear.Description = twentyTwoYear;
+                twentyTwoYear.Description = defaultDescription;
             }
 
-            return description;
+            return _description;
         }
     }
 }

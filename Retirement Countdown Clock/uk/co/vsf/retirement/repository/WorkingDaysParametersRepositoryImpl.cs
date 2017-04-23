@@ -9,20 +9,20 @@ namespace Retirement_Countdown_Clock.uk.co.vsf.retirement.repository
 {
     class WorkingDaysParametersRepositoryImpl : WorkingDaysParametersRepository
     {
-        private static WorkingDaysParametersRepository repositoryInstance;
+        private static WorkingDaysParametersRepository _repositoryInstance;
         
         private static String WD = "WorkingDays";
         private static String BH = "BankHolidays";
         private static String H = "Holidays";
 
-        public static WorkingDaysParametersRepository instance()
+        public static WorkingDaysParametersRepository Instance()
         {
-            if (repositoryInstance == null)
+            if (_repositoryInstance == null)
             {
-                repositoryInstance = new WorkingDaysParametersRepositoryImpl();
+                _repositoryInstance = new WorkingDaysParametersRepositoryImpl();
             }
 
-            return repositoryInstance;
+            return _repositoryInstance;
         }
 
         private WorkingDaysParametersRepositoryImpl()
@@ -30,9 +30,9 @@ namespace Retirement_Countdown_Clock.uk.co.vsf.retirement.repository
 
         }
         
-        public WorkingDaysParameters retrieveWorkingDaysParameters()
+        public WorkingDaysParameters RetrieveWorkingDaysParameters()
         {
-            Windows.Storage.ApplicationDataContainer localSettings = getLocalSettings();
+            Windows.Storage.ApplicationDataContainer localSettings = GetLocalSettings();
             int? workingDays = (int?)localSettings.Values[WD];
             int? holidays = (int?)localSettings.Values[H];
             int? bankHolidays = (int?)localSettings.Values[BH];
@@ -41,22 +41,22 @@ namespace Retirement_Countdown_Clock.uk.co.vsf.retirement.repository
             return workingDaysParameter;
         }
 
-        public void saveWorkingDaysParameters(WorkingDaysParameters toSave)
+        public void SaveWorkingDaysParameters(WorkingDaysParameters toSave)
         {
-            Windows.Storage.ApplicationDataContainer localSettings = getLocalSettings();
-            localSettings.Values[H] = toSave.getHolidays();
-            localSettings.Values[BH] = toSave.getBankHolidays();
-            localSettings.Values[WD] = toSave.getWorkingDays();
+            Windows.Storage.ApplicationDataContainer localSettings = GetLocalSettings();
+            localSettings.Values[H] = toSave.Holidays;
+            localSettings.Values[BH] = toSave.BankHolidays;
+            localSettings.Values[WD] = toSave.WorkingDays;
         }
 
-        private Windows.Storage.ApplicationDataContainer getLocalSettings()
+        private Windows.Storage.ApplicationDataContainer GetLocalSettings()
         {
             return Windows.Storage.ApplicationData.Current.LocalSettings;
         }
 
-        public void clearData()
+        public void ClearData()
         {
-            Windows.Storage.ApplicationDataContainer localSettings = getLocalSettings();
+            Windows.Storage.ApplicationDataContainer localSettings = GetLocalSettings();
             localSettings.Values[H] = null;
             localSettings.Values[BH] = null;
             localSettings.Values[WD] = null;

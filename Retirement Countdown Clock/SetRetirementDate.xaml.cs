@@ -27,36 +27,36 @@ namespace Retirement_Countdown_Clock
     /// </summary>
     public sealed partial class SetRetirementDate : Page
     {
-        private RetirementDateRepository retirementDateRepository = RetirementDateRepositoryImpl.instance();
-        private WorkingDaysParametersRepository workingDaysParametersRepository = WorkingDaysParametersRepositoryImpl.instance();
+        private RetirementDateRepository retirementDateRepository = RetirementDateRepositoryImpl.Instance();
+        private WorkingDaysParametersRepository workingDaysParametersRepository = WorkingDaysParametersRepositoryImpl.Instance();
 
         public SetRetirementDate()
         {
             this.InitializeComponent();
-            CustomTitleBar.customiseStatusBar();
+            CustomTitleBar.CustomiseStatusBar();
 
-            setUIDatePicker();
-            setUIWorkingDaysComboBoxes();
+            SetUIDatePicker();
+            SetUIWorkingDaysComboBoxes();
 
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
 
-            if (!DeviceType.isMobile())
+            if (!DeviceType.IsMobile())
             {
                 this.Container.Children.Remove(this.MobileTitle);
             }
         }
 
-        private void setUIDatePicker()
+        private void SetUIDatePicker()
         {
-            this.datePicker.Date = retirementDateRepository.retrieveRetirementDate().getDateTimeOffset();
+            this.datePicker.Date = retirementDateRepository.RetrieveRetirementDate().SelectedRetirementDate;
         }
 
-        private void setUIWorkingDaysComboBoxes()
+        private void SetUIWorkingDaysComboBoxes()
         {
-            WorkingDaysParameters workingDaysParameters = workingDaysParametersRepository.retrieveWorkingDaysParameters();
-            this.wdbh.SelectedIndex = workingDaysParameters.getBankHolidays();
-            this.wddh.SelectedIndex = workingDaysParameters.getHolidays();
-            this.wdwd.SelectedIndex = workingDaysParameters.getWorkingDays() -1;
+            WorkingDaysParameters workingDaysParameters = workingDaysParametersRepository.RetrieveWorkingDaysParameters();
+            this.wdbh.SelectedIndex = workingDaysParameters.BankHolidays;
+            this.wddh.SelectedIndex = workingDaysParameters.Holidays;
+            this.wdwd.SelectedIndex = workingDaysParameters.WorkingDays -1;
         }
 
         private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
@@ -65,7 +65,7 @@ namespace Retirement_Countdown_Clock
             Debug.WriteLine("BackRequested");
             if (rootFrame.CanGoBack)
             {
-                saveParametersOnNavigate();
+                SaveParametersOnNavigate();
 
                 rootFrame.GoBack();
                 e.Handled = true;
@@ -74,30 +74,30 @@ namespace Retirement_Countdown_Clock
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            saveParametersOnNavigate();
+            SaveParametersOnNavigate();
             Frame.Navigate(typeof(MainPage));
         }
 
-        private void saveParametersOnNavigate()
+        private void SaveParametersOnNavigate()
         {
             // ignore if the user selected a date in the past...
             RetirementDate selectedDate = new RetirementDate(this.datePicker.Date);
-            retirementDateRepository.saveRetirementDate(selectedDate);
+            retirementDateRepository.SaveRetirementDate(selectedDate);
 
             int workingDays = this.wdwd.SelectedIndex + 1;
             int holidays = this.wddh.SelectedIndex;
             int bankHolidays = this.wdbh.SelectedIndex;
             WorkingDaysParameters workingDaysParameters = new WorkingDaysParameters(workingDays, holidays, bankHolidays);
-            workingDaysParametersRepository.saveWorkingDaysParameters(workingDaysParameters);
+            workingDaysParametersRepository.SaveWorkingDaysParameters(workingDaysParameters);
         }
 
         private void ClearData_Click(object sender, RoutedEventArgs e)
         {
-            this.retirementDateRepository.clearData();
-            this.workingDaysParametersRepository.clearData();
+            this.retirementDateRepository.ClearData();
+            this.workingDaysParametersRepository.ClearData();
 
-            setUIDatePicker();
-            setUIWorkingDaysComboBoxes();
+            SetUIDatePicker();
+            SetUIWorkingDaysComboBoxes();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Retirement_Countdown_Clock
         private static Color COLOUR_TEXT = Colors.White;
         private static int OPACITY = 1;
 
-        public static void customiseStatusBar()
+        public static void CustomiseStatusBar()
         {
             //PC customization
             if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationView"))
@@ -33,7 +33,7 @@ namespace Retirement_Countdown_Clock
             }
 
             //Mobile customization
-            if (DeviceType.isMobile())
+            if (DeviceType.IsMobile())
             {
                 var statusBar = StatusBar.GetForCurrentView();
 

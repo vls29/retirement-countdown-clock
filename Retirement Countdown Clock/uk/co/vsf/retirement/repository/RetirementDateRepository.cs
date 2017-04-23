@@ -12,14 +12,14 @@ namespace Retirement_Countdown_Clock
         /// Retrieves the retirement date from the repository.
         /// </summary>
         /// <returns>Retirement date from the store</returns>
-        RetirementDate retrieveRetirementDate();
+        RetirementDate RetrieveRetirementDate();
 
         /// <summary>
         /// Saves the retirement date to the repository.
         /// </summary>
         /// <param name="toSave">date to save to store</param>
-        void saveRetirementDate(RetirementDate toSave);
+        void SaveRetirementDate(RetirementDate toSave);
 
-        void clearData();
+        void ClearData();
     }
 }

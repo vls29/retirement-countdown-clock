@@ -8,14 +8,14 @@ namespace Retirement_Countdown_Clock
 {
     class TwoMonthRetirementDateDescription : RetirementDateDescription
     {
-        public override String getText(RetirementDate retirementDate)
+        public override String GetText(RetirementDate retirementDate)
         {
-            if (retirementDate.getDaysToRetirement() < 60)
+            if (retirementDate.GetDaysToRetirement() < 60)
             {
                 return "Woo! The finish line is in sight";
             }
 
-            else { return retirementDateDescription.getText(retirementDate); }
+            else { return Description.GetText(retirementDate); }
         }
     }
 }
