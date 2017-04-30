@@ -9,10 +9,10 @@
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" CanDrag="True" VerticalScrollMode="Auto" Height="Auto" IsHoldingEnabled="True">
         <StackPanel x:Name="Container" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Background="Purple" x:Name="MobileTitle">
-            <TextBlock Width="auto" HorizontalAlignment="Stretch" Text="Retirement Countdown Clock" Foreground="White" Margin="5,10" />
-        </Grid>
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid Background="Purple" x:Name="MobileTitle">
+                <TextBlock Width="auto" HorizontalAlignment="Stretch" Text="Retirement Countdown Clock" Foreground="White" Margin="5,10" />
+            </Grid>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,10,0" MaxWidth="600">
                     <TextBlock Text="Application Settings" Margin="0,5" FontSize="18.667" />
                     <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />

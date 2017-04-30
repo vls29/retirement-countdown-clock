@@ -14,9 +14,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Storage;
 using System.Diagnostics;
-using Retirement_Countdown_Clock.uk.co.vsf.retirement.repository;
-using Retirement_Countdown_Clock.uk.co.vsf.retirement.domain;
-using Retirement_Countdown_Clock.uk.co.vsf.retirement;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.repository;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.domain;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.ui;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -95,6 +96,7 @@ namespace Retirement_Countdown_Clock
         {
             this.retirementDateRepository.ClearData();
             this.workingDaysParametersRepository.ClearData();
+            TileManager.Instance().RemoveLiveTileUpdates();
 
             SetUIDatePicker();
             SetUIWorkingDaysComboBoxes();

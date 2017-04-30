@@ -57,3 +57,6 @@ Package.appxmanifest
 *Retirement Clock*.*
 */Properties*
 AssemblyInfo.cs
+.vs*
+*/packages*
+*packages/*

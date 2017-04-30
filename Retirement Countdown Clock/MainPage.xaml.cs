@@ -1,11 +1,9 @@
-﻿using Retirement_Countdown_Clock.uk.co.vsf.retirement;
-using Retirement_Countdown_Clock.uk.co.vsf.retirement.domain;
-using Retirement_Countdown_Clock.uk.co.vsf.retirement.repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Background;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Foundation.Metadata;
@@ -18,6 +16,12 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Retirement_Countdown_Clock;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.repository;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.presentation;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.domain;
+using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.ui;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -62,6 +66,7 @@ namespace Retirement_Countdown_Clock
         {
             SetCalendarDaysToRetirement();
             SetWorkingDaysToRetirement();
+            TileManager.Instance().RegisterLiveTileUpdates();
         }
 
         private void GoToSettings(object sender, RoutedEventArgs e)
@@ -127,7 +132,7 @@ namespace Retirement_Countdown_Clock
             }
 
             BitmapImage bitmapImage = new BitmapImage();
-            bitmapImage.UriSource = new Uri(this.BaseUri, "Assets/numbers/rc" + imageNumber + ".png");
+            bitmapImage.UriSource = new Uri(this.BaseUri, $"Assets/numbers/rc{imageNumber}.png");
             return bitmapImage;
         }
 
