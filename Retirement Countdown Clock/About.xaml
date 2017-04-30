@@ -7,28 +7,50 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel x:Name="Container" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Background="Purple" x:Name="MobileTitle">
-            <TextBlock Width="auto" HorizontalAlignment="Stretch" Text="Retirement Countdown Clock" Foreground="White" Margin="5,10" />
-        </Grid>
-        <AppBarButton x:Name="appBarButton" Icon="Back" Label="Back" Margin="0,-4,0,0" d:LayoutOverrides="Width" Click="BackButton_Click"/>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,10,0" MaxWidth="600">
-            <TextBlock Text="About" Margin="0,5" FontSize="18.667" />
-                <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
-                <TextBlock x:Name="textBlock" TextWrapping="Wrap" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
-        	    <Run Text="Inspired by those around me who are a lot closer to retirement and my aspiration of retiring at 50."/>
-            </TextBlock>
-            <TextBlock Text="Versions" Margin="0,15,0,5" FontSize="18.667" />
-            <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
-            <TextBlock Margin="0,5" TextWrapping="Wrap">
-        	    <Run FontWeight="Bold" Text="1.1.0.0"/>
-        	    <LineBreak/>
-        	    <Run Text="    *  Ability to set one retirement date and see how many working and calendar days until retirement"/>
-            </TextBlock>
-            <TextBlock Text="Support" Margin="0,15,0,5" FontSize="18.667" />
-            <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
-            <TextBlock Margin="0,5" Text="This app is hopefully as simple as it gets! But if you have any questions, please post a comment on my website." TextWrapping="Wrap"/>
-            <HyperlinkButton Content="Victoria's Blog" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" NavigateUri="http://blog.v-s-f.co.uk/retirement-countdown-clock/"/>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" CanDrag="True" VerticalScrollMode="Auto" Height="Auto" IsHoldingEnabled="True">
+        <StackPanel x:Name="Container" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid Background="Purple" x:Name="MobileTitle">
+                <TextBlock Width="auto" HorizontalAlignment="Stretch" Text="Retirement Countdown Clock" Foreground="White" Margin="5,10" />
+            </Grid>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,10,0" MaxWidth="600">
+                    <TextBlock Text="About" Margin="0,5" FontSize="18.667" />
+                    <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
+        	        <Run Text="Inspired by those around me who are a lot closer to retirement and my aspiration of retiring at 50."/>
+                    </TextBlock>
+                    <TextBlock Text="Versions" Margin="0,15,0,5" FontSize="18.667" />
+                    <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+                    <TextBlock Margin="0,5" TextWrapping="Wrap">
+        	        <Run FontWeight="Bold" Text="2.0.0.0"/>
+        	        <LineBreak/>
+        	        <Run Text="    *  Published core code on github at " /><Hyperlink NavigateUri="https://github.com/vls29/retirement-countdown-clock">https://github.com/vls29/retirement-countdown-clock</Hyperlink><Run Text="." />
+                    <LineBreak/>
+                    <Run Text="    *  C#ify the code base (Yes, I'm not a C# developer)" />
+                    <LineBreak/>
+                    <Run Text="    *  And most importantly... add adaptive tiles at special request by my Mum who complained the app was rubbish without! Haha, thanks Mum :)"/>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <Run Text="Known features in this release:"/>
+                    <LineBreak/>
+                    <Run Text="    *  Sometimes the tile is a bit out of date.  It seems to update around 10am on my phone and I have no idea why..."/>
+                    </TextBlock>
+                    <TextBlock Margin="0,5" TextWrapping="Wrap">
+        	        <Run FontWeight="Bold" Text="1.1.0.0"/>
+        	        <LineBreak/>
+        	        <Run Text="    *  Ability to set one retirement date and see how many working and calendar days until retirement"/>
+                    </TextBlock>
+                    <TextBlock Text="Support" Margin="0,15,0,5" FontSize="18.667" />
+                    <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+                    <TextBlock Margin="0,5" Text="This app is hopefully as simple as it gets! But if you have any issues, please create a new issue on GitHub " TextWrapping="Wrap">
+                        <Hyperlink NavigateUri="https://github.com/vls29/retirement-countdown-clock/issues">https://github.com/vls29/retirement-countdown-clock/issues</Hyperlink>
+                    </TextBlock>
+                    <TextBlock Margin="0,5" Text="And last but not least, my blog " TextWrapping="Wrap">
+                        <Hyperlink NavigateUri="http://blog.v-s-f.co.uk/">http://blog.v-s-f.co.uk/</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <AppBarButton x:Name="appBarButton" Icon="Back" Label="Back" Margin="0,-4,0,0" d:LayoutOverrides="Width" Click="BackButton_Click"/>
+            </Grid>
         </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </Page>
