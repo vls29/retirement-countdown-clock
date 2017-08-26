@@ -40,13 +40,23 @@ namespace Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.ui
         public void Update()
         {
             TileNotification tileNotification = new TileNotification(GetTileXml());
-            TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
+            try {
+                TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
+            } catch(Exception e)
+            {
+                // suppress the exception seen in stack traces from Dell Inspiron machines
+            }
         }
 
         public void Reset()
         {
-            TileUpdateManager.CreateTileUpdaterForApplication().Clear();
-        }
+            try {
+                TileUpdateManager.CreateTileUpdaterForApplication().Clear();
+            } catch (Exception e)
+            {
+                // suppress the exception seen in stack traces from Dell Inspiron machines
+            }
+}
 
         private TileBinding BuildWideTile(int daysToRetirement)
         {
