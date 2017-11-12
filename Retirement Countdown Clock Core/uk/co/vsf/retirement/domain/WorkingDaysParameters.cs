@@ -10,9 +10,9 @@ namespace Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.domain
     {
         public int BankHolidays { get; private set; } = 0;
         public int Holidays { get; private set; } = 0;
-        public int WorkingDays { get; private set; } = 1;
+        public double WorkingDays { get; private set; } = 1.0d;
 
-        public WorkingDaysParameters(int? workingDays, int? holidays, int? bankHolidays)
+        public WorkingDaysParameters(double? workingDays, int? holidays, int? bankHolidays)
         {
             this.WorkingDays = FieldValue(this.WorkingDays, workingDays);
             this.BankHolidays = FieldValue(this.BankHolidays, bankHolidays);
@@ -20,6 +20,16 @@ namespace Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.domain
         }
 
         private int FieldValue(int field, int? inputValue)
+        {
+            if (inputValue.HasValue && inputValue.Value > 0)
+            {
+                return inputValue.Value;
+            }
+
+            return field;
+        }
+
+        private double FieldValue(double field, double? inputValue)
         {
             if (inputValue.HasValue && inputValue.Value > 0)
             {

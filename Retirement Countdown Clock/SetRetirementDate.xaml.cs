@@ -57,7 +57,7 @@ namespace Retirement_Countdown_Clock
             WorkingDaysParameters workingDaysParameters = workingDaysParametersRepository.RetrieveWorkingDaysParameters();
             this.wdbh.SelectedIndex = workingDaysParameters.BankHolidays;
             this.wddh.SelectedIndex = workingDaysParameters.Holidays;
-            this.wdwd.SelectedIndex = workingDaysParameters.WorkingDays -1;
+            this.wdwd.SelectedIndex = (int)((workingDaysParameters.WorkingDays * 2.0d) - 1.0d);
         }
 
         private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
@@ -85,7 +85,7 @@ namespace Retirement_Countdown_Clock
             RetirementDate selectedDate = new RetirementDate(this.datePicker.Date);
             retirementDateRepository.SaveRetirementDate(selectedDate);
 
-            int workingDays = this.wdwd.SelectedIndex + 1;
+            double workingDays = ((double)this.wdwd.SelectedIndex + 1.0d) / 2.0d;
             int holidays = this.wddh.SelectedIndex;
             int bankHolidays = this.wdbh.SelectedIndex;
             WorkingDaysParameters workingDaysParameters = new WorkingDaysParameters(workingDays, holidays, bankHolidays);

@@ -49,13 +49,20 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Working days per week " Grid.Row="0" Grid.Column="0" Margin="0,5" VerticalAlignment="Center"/>
                         <ComboBox x:Name="wdwd" Grid.Row="0" Grid.Column="1" Margin="0,5">
+                            <ComboBoxItem Name="wdwd0">0.5</ComboBoxItem>
                             <ComboBoxItem Name="wdwd1">1</ComboBoxItem>
-                            <ComboBoxItem Name="wdwd2">2</ComboBoxItem>
-                            <ComboBoxItem Name="wdwd3">3</ComboBoxItem>
-                            <ComboBoxItem Name="wdwd4">4</ComboBoxItem>
-                            <ComboBoxItem Name="wdwd5">5</ComboBoxItem>
-                            <ComboBoxItem Name="wdwd6">6</ComboBoxItem>
-                            <ComboBoxItem Name="wdwd7">7</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd2">1.5</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd3">2</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd4">2.5</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd5">3</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd6">3.5</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd7">4</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd8">4.5</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd9">5</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd10">5.5</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd11">6</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd12">6.5</ComboBoxItem>
+                            <ComboBoxItem Name="wdwd13">7</ComboBoxItem>
                         </ComboBox>
                         <TextBlock Text="Bank holidays per year " Grid.Row="1" Grid.Column="0" Margin="0,5" VerticalAlignment="Center" />
                         <ComboBox x:Name="wdbh" Grid.Row="1" Grid.Column="1" Margin="0,5">

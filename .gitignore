@@ -60,3 +60,4 @@ AssemblyInfo.cs
 .vs*
 */packages*
 *packages/*
+*$SBV$

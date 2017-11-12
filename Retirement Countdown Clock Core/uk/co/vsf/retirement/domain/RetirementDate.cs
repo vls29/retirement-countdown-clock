@@ -55,7 +55,7 @@ namespace Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.domain
 
             int holidays = (int)(years * (decimal)workingDaysParameters.Holidays);
             int bankHolidays = (int)(years * (decimal)workingDaysParameters.BankHolidays);
-            int workingDays = (int)((decimal)daysToRetirement * ((decimal)workingDaysParameters.WorkingDays / (decimal)7));
+            int workingDays = (int)(Math.Round((decimal)daysToRetirement * ((decimal)workingDaysParameters.WorkingDays / (decimal)7), 0, MidpointRounding.AwayFromZero));
 
             return workingDays - bankHolidays - holidays;
         }

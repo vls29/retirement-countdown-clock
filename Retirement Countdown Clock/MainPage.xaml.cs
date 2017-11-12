@@ -23,8 +23,6 @@ using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.presentation;
 using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.domain;
 using Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.ui;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace Retirement_Countdown_Clock
 {
     /// <summary>

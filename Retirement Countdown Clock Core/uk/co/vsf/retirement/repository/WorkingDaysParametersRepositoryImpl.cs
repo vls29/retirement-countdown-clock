@@ -33,7 +33,7 @@ namespace Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.repository
         public WorkingDaysParameters RetrieveWorkingDaysParameters()
         {
             Windows.Storage.ApplicationDataContainer localSettings = GetLocalSettings();
-            int? workingDays = (int?)localSettings.Values[WD];
+            double? workingDays = (double?)localSettings.Values[WD];
             int? holidays = (int?)localSettings.Values[H];
             int? bankHolidays = (int?)localSettings.Values[BH];
 

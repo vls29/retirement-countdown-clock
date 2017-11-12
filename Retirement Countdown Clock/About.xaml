@@ -19,8 +19,18 @@
                     <TextBlock x:Name="textBlock" TextWrapping="Wrap" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
         	        <Run Text="Inspired by those around me who are a lot closer to retirement and my aspiration of retiring at 50."/>
                     </TextBlock>
-                    <TextBlock Text="Versions" Margin="0,15,0,5" FontSize="18.667" />
+                    <TextBlock Text="Version History" Margin="0,15,0,5" FontSize="18.667" />
                     <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
+                    <TextBlock Margin="0,5" TextWrapping="Wrap">
+        	        <Run FontWeight="Bold" Text="2.1.0.0"/>
+        	        <LineBreak/>
+                    <Run Text="    *  Allow half days as input in working days drop down box (github issue #2)."/>
+                    </TextBlock>
+                    <TextBlock Margin="0,5" TextWrapping="Wrap">
+        	        <Run FontWeight="Bold" Text="2.0.1.0"/>
+        	        <LineBreak/>
+                    <Run Text="    *  Suppress an exception seen in exception traces from Dell Inspiron machines - specifically, add try-catch to tile update code"/>
+                    </TextBlock>
                     <TextBlock Margin="0,5" TextWrapping="Wrap">
         	        <Run FontWeight="Bold" Text="2.0.0.0"/>
         	        <LineBreak/>
