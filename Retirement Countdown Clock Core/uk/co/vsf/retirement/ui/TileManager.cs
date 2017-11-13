@@ -31,11 +31,13 @@ namespace Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.ui
             if (this._retirementDateRepository.IsRetirementDateStored())
             {
                 var backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
-                if (backgroundAccessStatus == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity ||
-                    backgroundAccessStatus == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity)
-                {
-                    UnRegisterIfExists();
+                UnRegisterIfExists();
 
+                if ((int)backgroundAccessStatus == 1 ||
+                    (int)backgroundAccessStatus == 2 ||
+                    (int)backgroundAccessStatus == 4 ||
+                    (int)backgroundAccessStatus == 5)
+                {
                     RegisterTask();
 
                     // finally - run the Tile Update
