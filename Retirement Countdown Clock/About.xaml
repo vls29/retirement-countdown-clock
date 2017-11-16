@@ -22,6 +22,20 @@
                     <TextBlock Text="Version History" Margin="0,15,0,5" FontSize="18.667" />
                     <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="0,5" />
                     <TextBlock Margin="0,5" TextWrapping="Wrap">
+        	        <Run FontWeight="Bold" Text="2.1.1.0"/>
+        	        <LineBreak/>
+                    <Run Text="    *  Working days cast bug fix."/>
+        	        <LineBreak/>
+                    <LineBreak/>
+                    <Run Text="Well the half days feature worked for those of you that installed the app from fresh... but for the rest of you it completely killed the app!  I had received over 11 thousand crash reports all of the same type within a couple of days - eek!"/>
+        	        <LineBreak/>
+        	        <LineBreak/>
+                    <Run Text="So sorry :(" />
+        	        <LineBreak/>
+        	        <LineBreak/>
+                    <Run Text="This bug fix simply does what should have added in the first place which is a better type checking for the working days input.  It used to be saved as an int and was changed to a double for the half days, but for those with the app already installed it needed to do a type check/convert instead of casting into a double."/>
+                    </TextBlock>
+                    <TextBlock Margin="0,5" TextWrapping="Wrap">
         	        <Run FontWeight="Bold" Text="2.1.0.0"/>
         	        <LineBreak/>
                     <Run Text="    *  Allow half days as input in working days drop down box (github issue #2)."/>
