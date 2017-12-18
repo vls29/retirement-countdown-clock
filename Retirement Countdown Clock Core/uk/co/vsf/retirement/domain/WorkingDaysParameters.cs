@@ -15,6 +15,8 @@ namespace Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.domain
         public WorkingDaysParameters(double? workingDays, int? holidays, int? bankHolidays)
         {
             this.WorkingDays = FieldValue(this.WorkingDays, workingDays);
+            ValidateWorkingDaysInput();
+
             this.BankHolidays = FieldValue(this.BankHolidays, bankHolidays);
             this.Holidays = FieldValue(this.Holidays, holidays);
         }
@@ -31,12 +33,19 @@ namespace Retirement_Countdown_Clock_Core.uk.co.vsf.retirement.domain
 
         private double FieldValue(double field, double? inputValue)
         {
-            if (inputValue.HasValue && inputValue.Value > 0)
+            if (inputValue.HasValue && inputValue.Value >= 0.5d)
             {
                 return inputValue.Value;
             }
 
             return field;
+        }
+        private void ValidateWorkingDaysInput()
+        {
+            if (WorkingDays < 0.5d || WorkingDays > 7d)
+            {
+                throw new ArgumentException("Invalid input for working days.  Minimum working days 0.5, maximum working days 7.0, actual value found: '" + WorkingDays + "'");
+            }
         }
     }
 }
